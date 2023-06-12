@@ -7,8 +7,7 @@ function generateSVG
 
 
 const questions = () => {
-  
-  return inquirer.prompt([
+    return inquirer.prompt([
     {
       type: "list",
       message: "Pick a shape for your logo!",
