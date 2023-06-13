@@ -1,9 +1,7 @@
 //packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const { Triangle, Square, Circle } = require("./lib/shapes");
-
-function generateSVG 
+const setShape = require("./lib/shapes")
 
 
 const questions = () => {
@@ -31,38 +29,25 @@ const questions = () => {
     },
   ]);
 };
-  
 
-//Create a function to write README file
-const writeFile = (data) => {
-  fs.writeFile("logo.svg", data, (err) => {
-    // if there is an error
-    if (err) {
-      console.log(err);
-      return;
-      // when the logo has been created
-    } else {
-      console.log("Generated logo.svg!");
-    }
-  });
-}; 
-
-// TODO: Create a function to initialize app
-function init() {
-questions()
-  // getting user answers
-  .then((answers) => {
-    return generateSVG(answers);
-  })
-  // using data to display on page
-  .then((data) => {
-    return writeFile(data);
-  })
-  // catching errors
-  .catch((err) => {
-    console.log(err);
-  });
+//function to create SVG file  
+function createLogo(response) {
+  const svg = setShape(respomse);
+  fs.writeFile(fileName, svg, () => console.log('Logo.svg generated'));
 };
 
-// Function call to initialize app
+//Function to initialize app, catch errors
+function init() {
+  inquirer
+    .prompt(questions)
+    .then((response) => {
+      createLogo(response);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
 init();
+
+
