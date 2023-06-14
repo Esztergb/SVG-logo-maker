@@ -24,12 +24,13 @@ Generate an SVG logo with your choice of shape (circle, square, or triangle), sh
 2. **Clone**: Within GitBash, use the command "git clone paste link here"
 3. **NPM**: Use the command "npm init -y" to install Node Package Manager
 4. **Inquirer**: Use the command "npm install inquirer" to get npm's inquirer package
+5. **Jest**: Use Jest for a suite of unit tests.
 
 ## Usage 
 The application will be invoked by using the “node index” command.  
 Click on the screenshot below to start the **Screencastify video tutorial**:
 
-*[![screencastify video](./utils/Screenshot%202023-05-29%20at%209.08.36%20PM.png)](https://drive.google.com/file/d/1i6HxI4x-f-XP0JUGt7HG_rau6QvUyyWZ/view)*
+*[![screencastify video](./assets/sample.jpeg)](https://drive.google.com/file/d/1qJ2WuoA3rLOA-7dxKle6kzbnKXrvNMj9/view)*
   
 ## License
 This project is covered under the MIT licence.  
