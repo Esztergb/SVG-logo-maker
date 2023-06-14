@@ -4,7 +4,7 @@ const { writeFile } = require("fs").promises;
 const { Circle, Triangle, Square } = require("./lib/shapes");
 
 
-const prompts = [
+const userInput = [
     {
       type: "list",
       message: "Pick a shape for your logo!",
@@ -30,7 +30,7 @@ const prompts = [
 
   const init = async () => {
     try {
-      const data = await inquirer.prompt(prompts);
+      const data = await inquirer.prompt(userInput);
       let shape;
       if (data.shape == "circle") {
         shape = new Circle(); 
