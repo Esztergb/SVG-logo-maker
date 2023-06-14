@@ -1,11 +1,10 @@
 //packages needed for this application
 const inquirer = require("inquirer");
-const fs = require("fs");
-const { generateSVG } = require("./lib/generateSVG");
-const { generateShape } = require("./lib/generateShape");
+const { writeFile } = require("fs").promises;
+const { Circle, Triangle, Square } = require("./lib/shapes");
 
-inquirer
-  .prompt([
+
+const prompts = [
     {
       type: "list",
       message: "Pick a shape for your logo!",
@@ -26,16 +25,29 @@ inquirer
       type: "input",
       message: "Please enter color code or HEX# for your logo text!",
       name: "textColor",
-    },
-  ])
-  .then((data) => {
-    const svgPath = "./examples/logo.svg";
-    const finalLogo = generateShape(data);
+    }
+  ]
 
-    //Generate the svg logo here.
-    fs.writeFile(svgPath, generateSVG(finalLogo), (err) =>
-      err ? console.error(err) : console.log("Generated logo.svg")
-    );
-  })
-  .catch((err) => console.error(err));
-  
+  const init = async () => {
+    try {
+      const data = await inquirer.prompt(prompts);
+      let shape;
+      if (data.shape == "circle") {
+        shape = new Circle(); 
+      } else if (data.shape == "triangle") {
+        shape = new Triangle();
+      } else {
+        shape = new Square();
+      }
+      shape.setColor(data.shapeColor);
+      shape.setText(data.text);
+      shape.setTextColor(data.textColor);
+
+      console.log("Generated logo.svg");
+      writeFile(`./examples/${data.shape}.svg`, shape.render()); 
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  init();
