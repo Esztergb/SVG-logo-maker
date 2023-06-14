@@ -1,4 +1,4 @@
-# <span style="color:gold">SVG-logo-maker</span>
+# <span style="color:gold">SVG Logo Maker</span>
  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
@@ -30,7 +30,7 @@ Generate an SVG logo with your choice of shape (circle, square, or triangle), sh
 The application will be invoked by using the “node index” command.  
 Click on the screenshot below to start the **Screencastify video tutorial**:
 
-*[![screencastify video](./assets/sample.jpeg)](https://drive.google.com/file/d/1qJ2WuoA3rLOA-7dxKle6kzbnKXrvNMj9/view)*
+*[![screencastify video](./images/sample.jpeg)](https://drive.google.com/file/d/1qJ2WuoA3rLOA-7dxKle6kzbnKXrvNMj9/view)*
   
 ## License
 This project is covered under the MIT licence.  
