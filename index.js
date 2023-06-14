@@ -1,53 +1,28 @@
 //packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const setShape = require("./lib/shapes")
+const questions = require("./lib/questions.js");
+const fileName = "./examples/logo.svg";
+const setShape = require("./lib/setshape.js");
 
 
-const questions = () => {
-    return inquirer.prompt([
-    {
-      type: "list",
-      message: "Pick a shape for your logo!",
-      name: "logoShape",
-      choices: ["circle", "triangle", "square"],
-    },
-    {
-      type: "input",
-      message: "Please enter color code or HEX# for your logo background!",
-      name: "logoColor",
-    },
-    {
-      type: "input",
-      message: "Please enter a 1-3 character text for your logo",
-      name: "text",
-    },
-    {
-      type: "input",
-      message: "Please enter color code or HEX# for your logo text!",
-      name: "textColor",
-    },
-  ]);
-};
-
-//function to create SVG file  
+// function to create new svg file using inquirer response and file system
 function createLogo(response) {
-  const svg = setShape(respomse);
-  fs.writeFile(fileName, svg, () => console.log('Logo.svg generated'));
-};
+    const svg = setShape(response);
+    fs.writeFile(fileName, svg, ()=> console.log('Generated logo.svg'));
+}
 
-//Function to initialize app, catch errors
+// initialize, ask questions then createLogo using responses, catch any errors
 function init() {
-  inquirer
+    inquirer 
     .prompt(questions)
     .then((response) => {
-      createLogo(response);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+        createLogo(response);
+        })
+    .catch(err => {
+            console.log(err)
+        });
 }
 
 init();
-
 
